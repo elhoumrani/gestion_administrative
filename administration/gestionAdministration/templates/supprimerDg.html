@@ -1,0 +1,57 @@
+{% extends 'accueildg.html' %}
+{% load static %}
+
+{% block title %} <title>Archiver</title>{% endblock %}
+
+
+        {% block contenu%}
+        <div class="content-body">
+
+            <div class="row page-titles mx-0">
+                
+            </div>
+            <!-- row -->
+
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <p style="text-align: center;">Etes vous sur d'archiver <strong>{{ context }}</strong></p>
+                                <div class="form-validation">
+                                    <form class="form-valide" action="" method="post">
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <select name="motif" id="motif" class="form-control" style="border-radius: 12px;">
+                                                <option value="">Selectionnez un motif</option>
+                                                <option value="Décés">Décés</option>
+                                                <option value="Retraite">Retraite</option>
+                                                <option value="Probleme de santé">Probleme de santé</option>
+                                                <option value="Handicap">Handicap</option>
+                                                <option value="Demanagement">Demanagement</option>
+                                                <option value="Demission">Demission</option>
+                                                <option value="Emprisonnement">Emprisonnement</option>
+                                                <option value="Comportement frauduleux">Comportement frauduleux</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-lg-8 ml-auto">
+                                                <button type="submit" class="btn btn-danger">Archiver</button>
+                                                <button class="btn btn-primary"><a href="{% url 'listePersonnel' %}" class="text-white">Annuler</a></button>
+                                            </div>
+                                            
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #/ container -->
+        </div>
+
+        {% endblock %}
+        <!--**********************************
+            Content body end
+        ***********************************-->

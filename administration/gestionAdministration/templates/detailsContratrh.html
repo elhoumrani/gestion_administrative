@@ -1,0 +1,55 @@
+{% extends 'accueilrh.html' %}
+{% load static %}
+
+{% block title %} <title>Details</title>{% endblock %}
+
+
+
+        {% block contenu %}
+        <div class="content-body">
+
+            <div class="row page-titles mx-0">
+                <div class="col p-md-0">
+                    <p style="font-weight: 700; color: black; text-align: center;"><strong>Details du contrat de l'employé  {{ contrat.employe.nom }} {{ contrat.employe.prenom }}</strong></p>
+                   
+                </div>
+            </div>
+            <!-- row -->
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <p style="text-align: center; color: black;">Informations</p>
+                                <hr style="background-color: black; border: 1px solid #000;;">
+                                
+                                <p style="text-align: left; color: black;"> <strong>Identifiant du contrat : </strong> {{ contrat.id }} <br> 
+                                    <strong>Nom de l'employé : </strong>  {{ contrat.employe.nom }} <br>
+                                    <strong>Prenom de l'employé : </strong>{{ contrat.employe.prenom }} <br>
+                                    <strong>Matricule de l'employé :</strong> {{ contrat.employe.matricule }} <br>
+                                    <strong>Departement de l'employé :</strong> {{ contrat.employe.depart }} <br>
+                                    <strong>Poste ocuupé :</strong> {{ contrat.poste }} <br>
+                                    <strong>Nature du contrat :</strong> {{ contrat.types }} <br>
+                                    <strong>Date de signature : </strong> {{ contrat.dateSignature }} <br>
+                                    <strong>Date de fin :</strong> {{ contrat.date_fin }} <br>
+                                   <strong> Salaire : </strong> {{ contrat.salaire }} <br>
+                                    <strong>Avantages  : </strong>{{ contrat.avantages }} <br>
+                                   <strong>Obligations :</strong>  {{ contrat.obligations }} <br>
+                                    <strong>Condition de resiliation :</strong> {{ contrat.resialiasion }} <br>
+                                    <button class="btn btn-primary">
+                                       <a href="{% url 'listeContrat' %}" class="text-white"> Retourner </a>
+                                     </button>
+                                </p>
+                  
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- #/ container -->
+        </div>
+        {% endblock %}
+        
+     

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} <title>Enregistrer</title>{% endblock %}
+
+        {% block contenu%}
+        <div class="content-body">
+
+            <div class="row page-titles mx-0">
+                
+            </div>
+            <!-- row -->
+
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <p style="text-align: center;">Voulez-vous vraiment annulé cet evenement</p>
+                                <div class="form-validation">
+                                    <form class="form-valide" action="" method="post">
+                                        {% csrf_token %}
+                                        <div class="form-group row">
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-lg-8 ml-auto">
+                                                <button type="submit" class="btn btn-danger">Supprimer</button>
+                                                <button class="btn btn-primary"><a href="{% url 'evenement' %}" class="text-white">Annuler</a></button>
+                                            </div>
+                                            
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #/ container -->
+        </div>
+
+        {% endblock %}
+        <!--**********************************
+            Content body end
+        ***********************************-->

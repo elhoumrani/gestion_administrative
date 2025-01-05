@@ -1,0 +1,118 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+{% block title %} <title>Details</title>{% endblock %}
+
+        {% block slider %}
+        <div class="nk-sidebar">           
+            <div class="nk-nav-scroll">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <p style="text-align: center; color: black;">Evenements</p>
+                                <hr style="background-color: black; border: 1px solid #000;;">
+                                <p>{{ message }}</p>
+            
+                                {% for elt in event %}
+                                <p>
+                                    Description : {{ elt.description }} <br> 
+                                    Date : {{ elt.date_debut}} <br>
+                                    Lieu : {{ elt.lieu }} <br> 
+                                </p>
+                                <hr style="background-color: black; border: 1px solid #000;;">
+                                {% endfor %}
+                             </div>   
+                        
+                        </div>       
+                  
+                    </div>
+                </div>
+
+            </div>
+        
+        </div>
+
+        {% endblock %}
+
+
+        {% block contenu %}
+        <div class="content-body">
+
+            <div class="row page-titles mx-0">
+                <div class="col p-md-0">
+                    <p style="font-weight: 700; color: black; text-align: center;"><strong>Details de l'employé  {{ details.nom }} {{ details.prenom }}  {{ details.statut }} pour le moment</strong></p>
+                   
+                </div>
+            </div>
+            <!-- row -->
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <p style="text-align: center; color: black;">Informations personnelles</p>
+                                <hr style="background-color: black; border: 1px solid #000;;">
+                                
+                                <p>Matricule : {{ details.matricule }} <br> 
+                                    Nom :  {{ details.nom }} <br>
+                                    Prenom : {{ details.prenom }} <br>
+                                    Sexe : {{ details.sexe }} <br>
+                                    E-mail :{{ details.emails }} <br>
+                                    Date de naissance : {{ details.date_naissance }} <br>
+                                    Lieu de naissance : {{ details.lieu_naissance }} <br>
+                                    CNI : {{ details.cni }} <br>
+                                    Lieu de residence : {{ details.lieu_residence }} <br>
+                                
+                                    Civilité : {{ details.civilite }} <br>
+                                    Nombre d'enfant : {{ details.nombre_enf }} <br>
+                                    Nationalité : {{ details.nationalite }} <br>
+                                    Telephone : {{ details.telephone }} <br>
+                                    Profession : {{ details.profession }} <br>
+                                    Diplome : {{ details.diplome }} <br>
+                                    Adresse : {{ details.adresse }} <br>
+                                    Departement : {{ details.depart }} <br>
+                                    <p></p>
+                                     
+                                    
+                                    </p>
+                                
+                              
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <p style="text-align: center; color: black;">Contrat</p>
+                                <hr style="background-color: black; border: 1px solid #000;;">
+                                <p>{{ message }}</p>
+
+                                {% for elt in contrat %}
+                                <p>
+                                    Identifiant du contrat : {{ elt.id }} <br> 
+                                    Identifiant de l'employé : {{ elt.employe_id}} <br>
+                                    Nature du contrat : {{ elt.types }} <br> 
+                                    Duree du contrat : {{ elt.duree }} <br> 
+                                    Salaire : {{ elt.salaire }} <br> 
+                                    Poste  : {{ elt.poste }} <br> 
+            
+                                </p>
+                                <hr style="background-color: black; border: 1px solid #000;;">
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+
+                </div>
+            </div>
+            <!-- #/ container -->
+        </div>
+        {% endblock %}
+        
+     

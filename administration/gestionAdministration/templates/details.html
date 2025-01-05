@@ -1,0 +1,110 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %} <title>Details</title>{% endblock %}
+
+
+
+        {% block contenu %}
+        <div class="content-body">
+
+            <div class="row page-titles mx-0">
+                <div class="col p-md-0">
+                    <p style="font-weight: 700; color: black; text-align: center;"><strong>Details de l'employé  {{ details.nom }} {{ details.prenom }}  {{ details.statut }} pour le moment</strong></p>
+                   
+                </div>
+            </div>
+            <!-- row -->
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <p style="text-align: center; color: black;">Informations personnelles</p>
+                                <hr style="background-color: black; border: 1px solid #000;;">
+                                
+                                <p>Matricule : {{ details.matricule }} <br> 
+                                    Nom :  {{ details.nom }} <br>
+                                    Prenom : {{ details.prenom }} <br>
+                                    Sexe : {{ details.sexe }} <br>
+                                    E-mail :{{ details.emails }} <br>
+                                    Date de naissance : {{ details.date_naissance }} <br>
+                                    Lieu de naissance : {{ details.lieu_naissance }} <br>
+                                    CNI : {{ details.cni }} <br>
+                                    Lieu de residence : {{ details.lieu_residence }} <br>
+                                    Lieu de naissance : {{ details.lieu_naissance }} <br>
+                                    Civilité : {{ details.civilite }} <br>
+                                    Nombre d'enfant : {{ details.nombre_enf }} <br>
+                                    Nationalité : {{ details.nationalite }} <br>
+                                    Telephone : {{ details.telephone }} <br>
+                                    Profession : {{ details.profession }} <br>
+                                    Diplome : {{ details.diplome }} <br>
+                                    Adresse : {{ details.adresse }} <br>
+                                    Departement : {{ details.depart }} <br>
+                                     <button class="btn btn-primary"  style=" margin-right: 10px; ">
+                                        <a class="text-white" href="{% url 'modifierP' id=details.id %}"> Modifier </a>
+                                    </button>
+                                    <button class="btn btn-danger">
+                                       <a href="{% url 'supprimerP' id=details.id %}" class="text-white"> Archiver </a>
+                                     </button>
+                                    </p>
+                                
+                              
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <p style="text-align: center; color: black;">Contrat</p>
+                                
+                                {% if message %}
+                                <p>{{ message }}</p>
+                                {% endif %}
+                                {% for elt in contrat %}
+                                <p>
+                                    <hr style="background-color: black; border: 1px solid #000;;">
+                                    Identifiant du contrat : {{ elt.id }} <br> 
+                                    Identifiant de l'employé : {{ elt.employe_id }} <br>
+                                    Nature du contrat : {{ elt.types }} <br> 
+                                    Date de signature : {{ elt.dateSignature }} <br> 
+                                    Date de fin : {{ elt.date_fin }} <br> 
+                                    Salaire : {{ elt.salaire }} <br> 
+                                    Poste  : {{ elt.poste }} <br> 
+            
+                                </p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <p style="text-align: center; color: black;">Contrat Archivés</p>
+                                
+                                {% for elt in archivec %}
+                                <hr style="background-color: black; border: 1px solid #000;;">
+                                <p>
+                                    Identifiant du contrat : {{ elt.id }} <br> 
+                                    Identifiant de l'employé : {{ elt.employe_id }} <br>
+                                    Nature du contrat : {{ elt.types }} <br> 
+                                    Date de signature : {{ elt.dateSignature }} <br> 
+                                    Date de fin : {{ elt.date_fin }} <br>
+                                    Salaire : {{ elt.salaire }} <br> 
+                                    Poste  : {{ elt.poste }} <br> 
+                                    motif : {{ elt.motif }} <br>
+                                    Archivé : {{ elt.date_archive}} <br>
+            
+                                </p>
+                                {% endfor %}
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #/ container -->
+        </div>
+        {% endblock %}
+        
+     

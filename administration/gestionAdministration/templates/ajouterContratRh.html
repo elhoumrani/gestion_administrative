@@ -1,0 +1,108 @@
+{% extends 'accueilrh.html' %}
+{% load static %}
+
+{% block title %} <title>Ajouter contrat</title>{% endblock %}
+
+
+
+
+        {% block contenu%}
+        <div class="content-body">
+
+            <div class="row page-titles mx-0">
+                
+            </div>
+            <!-- row -->
+
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                {% if msg %}
+							
+							        <div class="alert alert-danger"> {{ msg }}</div>
+							
+							    {% endif %}
+                                <div class="form-validation">
+                                    <form class="form-valide"  method="POST">
+                                        {% csrf_token %}
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-username">Identifient Employé <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                {{ form.employe }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-email">Poste <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                {{ form.poste }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-password">Type de contrat <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                {{ form.types }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-confirm-password"> Salaire <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                {{ form.salaire }}
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-currency"> Date fin <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                {{ form.date_fin }}
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-currency"> Avantages <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                {{ form.avantages }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-currency"> Obligations <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                {{ form.obligations }}
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-currency"> Conditions de resiliation <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                {{ form.resialiasion }}
+                                            </div>
+                                        </div>
+                                       
+                                       
+                                        <div class="form-group row">
+                                            <div class="col-lg-8 ml-auto">
+                                                <button type="submit" class="btn btn-primary">Enregistrer</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #/ container -->
+        </div>
+        {% endblock %}
+        <!--**********************************
+            Content body end
+        ***********************************-->

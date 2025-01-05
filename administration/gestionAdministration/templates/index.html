@@ -1,0 +1,198 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+        {% block title %} <title>Accueil</title> {% endblock  %}
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        {% block nom %}
+        <div class="header-left">
+            <div class="input-group icons">
+                <div class="input-group-prepend">
+                    <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><Strong>{{ username }}</Strong></span>
+                </div>
+                
+            </div>
+        </div>
+        {% endblock %}
+
+        {% block header %}
+
+        <div class="header">    
+            <div class="header-content clearfix">
+                
+                <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="toggle-icon"><i class="icon-menu"></i></span>
+                    </div>
+                </div>
+               
+                <div class="header-right">
+                    <ul class="clearfix">
+                      
+                        <li class="icons dropdown d-none d-md-flex">
+                            <a href="{% url 'message_msg' %}" class="log-user">
+                                <span>Message <strong style="color: rgb(56, 56, 242);">{{ msg }}</strong></span>
+                            </a>
+                            <a href="{% url 'notifcations' %}" class="log-user">
+                                <span>Notification <strong style="color: rgb(56, 56, 242);">{{ notif }}</strong> </span>
+                            </a>
+                           
+                        </li>
+                        <li class="icons dropdown">
+                            <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
+                                <span class="activity active"></span>
+                                
+                            </div>
+                            <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
+                                <div class="dropdown-content-body">
+                                    <ul>
+                                       
+                                        <hr class="my-2">
+                                       
+                                        
+                                        <li><a href="#"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        {% endblock %}
+
+        {% block contenu %}
+        <div class="content-body">
+
+            <div class="container-fluid mt-3">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card gradient-1">
+                            <div class="card-body">
+                                <a href="{% url 'listePersonnel' %}">
+                                <h3 class="card-title text-white">Employé</h3>
+                                <div class="d-inline-block">
+                                    
+                                </div>
+                                <span class="float-right display-5 opacity-5"></span>
+                            </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card gradient-2">
+                            <div class="card-body" >
+                                <a href="{% url 'liste_congé' %}">
+                                <h3 class="card-title text-white">Congé</h3>
+                                <div class="d-inline-block">
+                                    
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="far fa-calendar"></i></span>
+                            </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card gradient-3" >
+                            <div class="card-body">
+                                <a href="{% url 'listeContrat' %}">
+                                <h3 class="card-title text-white">Contrat</h3>
+                                <div class="d-inline-block">
+                                    
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="far fa-calendar"></i></i></span>
+                            </a>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card gradient-4">
+                            <div class="card-body"  style="background-color: rgba(0, 152, 185, 1); border-radius: 12px;">
+                                <a href="{% url 'evenement' %}">
+                                <h3 class="card-title text-white">Evenement</h3>
+                                <div class="d-inline-block">
+                                    
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="far fa-calendar"></i></span>
+                            </a>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card gradient-3" >
+                            <div class="card-body">
+                              <a href="{% url 'message_msg' %}">
+                                <h3 class="card-title text-white">Message</h3>
+                                <div class="d-inline-block">
+                                    <h2 class="text-white">Total</h2>
+                                    <p class="text-white mb-0">{{ nombre }}</p>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="far fa-comment-dots"></i></span>
+                              </a>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card gradient-1">
+                            <div class="card-body">
+                                <a href="{% url 'ajouter_deprt' %}">
+                                <h3 class="card-title text-white">Departement</h3>
+                                <div class="d-inline-block">
+                                    
+                                </div>
+                                <span class="float-right display-5 opacity-5"></span>
+                            </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+        
+        
+                
+                                               
+                                               
+                                                
+                                       
+            
+            </div>
+            <!-- #/ container -->
+        </div>
+
+        
+                
+
+            
+            </div>
+            <!-- #/ container -->
+        </div>
+        {% endblock %}
+        <!--**********************************
+            Content body end
+        ***********************************-->
+        
+        
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        
+        <!--**********************************
+            Footer end
+        ***********************************-->
+    
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    

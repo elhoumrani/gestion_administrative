@@ -1,0 +1,213 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    
+    <!-- theme meta -->
+    <meta name="theme-name" content="quixlab" />
+  
+    {% block title %}
+    <title></title>
+    {% endblock %}
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon.png' %}">
+    <!-- Pignose Calender -->
+    <link href="{% static './plugins/pg-calendar/css/pignose.calendar.min.css' %}" rel="stylesheet">
+    <!-- Chartist -->
+    <link rel="stylesheet" href="{% static './plugins/chartist/css/chartist.min.css' %}">
+    <link rel="stylesheet" href="{% static './plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- Custom Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+            </svg>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <div class="brand-logo">
+                <a href="#">
+                    <!--************** logo rond  ********************-->
+                    <b class="logo-abbr"><img src="{% static 'images/logo.png' %}" alt=""> </b>
+                    <!--************** logo tiret  ********************-->
+                    <span class="logo-compact"><img src="{% static './images/logo-compact.png' %}" alt=""></span>
+                    <span class="brand-title">
+                        <!--************** logo ecriture blanc sur le font bleur  ********************-->
+                        <img src="{% static 'images/log.png' %}" alt="">
+                    </span>
+                </a>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        {% block header %}
+        {% endblock %}
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="nk-sidebar">           
+            <div class="nk-nav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li> <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <i class="icon-screen-tablet menu-icon"></i><span class="nav-text">Dashboard</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'acceuil'  %}">Accueil</a></li>
+                            <li><a href="/gestion_systeme">Gestion de systeme</a></li>
+                        </ul>
+                        
+                    </li>
+                    
+                   
+                    <li class="mega-menu mega-menu-sm">
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-screen-tablet menu-icon"></i><span class="nav-text">Employés</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            
+                            <li><a href="{% url 'formulairePersonnel'  %}">Ajouter un nouveau employe</a></li>
+                            <li><a href="{% url 'listePersonnel' %}">Lister tous les employes</a></li>
+                            <li><a href="{% url 'archivePersonnel' %}">Archives employé</a></li>
+                            <li><a href="{% url 'detailsPerson' %}">Details personnel </a></li>
+                        </ul>
+                    </li>
+        
+                    <li class="mega-menu mega-menu-sm">
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-screen-tablet menu-icon"></i><span class="nav-text">Contrat</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'ajouterContrat' %}">Ajouter un nouveau contrat</a></li>
+                            <li><a href="{% url 'listeContrat' %}">Liste des contrats</a></li>
+                            <li><a href="{% url 'archiveContrat' %}">Archives</a></li>
+                        </ul>
+                    </li>
+        
+                    <li class="mega-menu mega-menu-sm">
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-screen-tablet menu-icon"></i><span class="nav-text">Evenement</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'evenement' %}">Planifier un Evenement</a></li>
+                            
+                            
+                        </ul>
+                    </li>
+        
+                    <li class="mega-menu mega-menu-sm">
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-screen-tablet menu-icon"></i><span class="nav-text">Congés</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            
+                            <li><a href="{% url 'demande_Congé' %}">demander de congé</a></li>
+                            <li><a href="{% url 'liste_congé' %}">Afficher congé</a></li>
+                            
+                        </ul>
+                    </li>
+        
+                    <li class="mega-menu mega-menu-sm">
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-screen-tablet menu-icon"></i><span class="nav-text">Departement</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'departement' %}">Ajouter un nouveau departement</a></li>  
+                        </ul>
+                    </li>
+                    <li class="mega-menu mega-menu-sm">
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-screen-tablet menu-icon"></i><span class="nav-text">Comptes</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'registerUser' %}">Ajouter un nouveau compte</a></li>
+                            <li><a href="{% url 'listeCompte' %}">Afficher comptes</a></li>
+                           
+                        </ul>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+
+        {% block contenu %}
+        {% endblock %}
+
+
+
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright &copy; Designed & Developed by <strong>El Salami El Houmrani El Assali</strong> 2024</p>
+            </div>
+        </div>
+
+        <!--**********************************
+        Scripts
+    ***********************************-->
+    <script src="{% static 'plugins/common/common.min.js' %}"></script>
+    <script src="{% static 'js/custom.min.js' %}"></script>
+    <script src="{% static 'js/settings.js' %}"></script>
+    <script src="{% static 'js/gleek.js' %}"></script>
+    <script src="{% static 'js/styleSwitcher.js' %}"></script>
+
+    <!-- Chartjs -->
+    <script src="{% static './plugins/chart.js/Chart.bundle.min.js' %}"></script>
+    <!-- Circle progress -->
+    <script src="{% static './plugins/circle-progress/circle-progress.min.js' %}"></script>
+    <!-- Datamap -->
+    <script src="{% static './plugins/d3v3/index.js' %}"></script>
+    <script src="{% static './plugins/topojson/topojson.min.js' %}"></script>
+    <script src="{% static './plugins/datamaps/datamaps.world.min.js' %}"></script>
+    <!-- Morrisjs -->
+    <script src="{% static './plugins/raphael/raphael.min.js' %}"></script>
+    <script src="{% static './plugins/morris/morris.min.js' %}"></script>
+    <!-- Pignose Calender -->
+    <script src="{% static './plugins/moment/moment.min.js' %}"></script>
+    <script src="{% static './plugins/pg-calendar/js/pignose.calendar.min.js' %}"></script>
+    <!-- ChartistJS -->
+    <script src="{% static './plugins/chartist/js/chartist.min.js' %}"></script>
+    <script src="{% static './plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js' %}"></script>
+    <script src="{% static './js/dashboard/dashboard-1.js' %}"></script>
+
+    <script src="{% static './plugins/tables/js/jquery.dataTables.min.js' %}"></script>
+   
+    <script src="{% static './plugins/tables/js/datatable-init/datatable-basic.min.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,158 @@
+{% extends 'accueildg.html' %}
+{% load static %}
+
+{% block title %} <title>Modifier</title>{% endblock %}
+
+        {% block contenu%}
+        <div class="content-body">
+
+            <div class="row page-titles mx-0">
+                
+            </div>
+            <!-- row -->
+
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-validation">
+                                    <form class="form-valide" action="" method="post">
+                                        {% csrf_token %}
+                                       
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-email">Nom <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                {{ context.nom}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-password">Prenom <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                {{ context.prenom}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-confirm-password"> Sexe <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                {{ context.sexe}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-suggestions">E-mail <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                {{ context.emails}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-skill">Date de naissance <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                {{ context.date_naissance}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-currency">Lieu de naissance <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                {{ context.lieu_naissance}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-website">CNI <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                {{ context.cni}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-website">Lieu de residence <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                {{ context.lieu_residence}}
+                                            </div>
+                                        </div>
+                                
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-website">Civilité <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                {{ context.civilite}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-website">Nombre d'enfant <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                {{ context.nombre_enf}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-website">Nationalité <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                {{ context.nationalite}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-website">Telephone <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                {{ context.telephone}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-website">Profession <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                {{ context.profession}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row" style="margin-bottom: 4px;">
+                                            <label class="col-lg-4 col-form-label" for="val-website">Departement <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                {{ context.diplome}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-website">Adresse <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                {{ context.adresse}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-website">Diplome <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                {{ context.depart }}
+                                            </div>
+                                        </div>
+                                        {% if errors %}
+                                            {% for field, messages in errors.items %}
+                                                {% for message in messages %}
+                                                 <p>{{ erreur }}</p>
+                                                {% endfor %}
+                                            {% endfor %}
+                                        {% endif %}
+                                        <div class="form-group row">
+                                            <div class="col-lg-8 ml-auto">
+                                                <button type="submit" class="btn btn-primary">Enregistrer</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #/ container -->
+        </div>
+
+        {% endblock %}

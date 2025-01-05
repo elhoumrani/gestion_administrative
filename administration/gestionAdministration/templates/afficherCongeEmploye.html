@@ -1,0 +1,109 @@
+{% extends 'accueilE.html' %}
+{% load static %}
+
+{% block title %} <title>Demande</title>{% endblock %}
+
+
+
+
+{% block contenu %}
+
+<div class="content-body">
+
+    <!-- row -->
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="row">      
+                <div class="col-12">
+                       <div class="card">
+                           <div class="card-body">
+                               <h4 class="card-title">Congé En cours </h4>
+                               <div class="table-responsive">
+                                   <table class="table table-striped table-bordered zero-configuration">
+                                       
+                                       <thead>
+                                           <tr>
+                                               <th>Employé</th>
+                                               <th>Departement</th>
+                                               <th> Type de congé </th>
+                                               <th> motif </th>
+                                               <th> Date début </th>
+                                               <th> Date fin </th>
+                                               
+                                               
+                                           </tr>
+                                       </thead>
+                                       <tbody>
+                                           {% for elt in congen %}
+                                          <tr>
+                                               <td>{{ elt.employe.nom }} {{ elt.employe.prenom }}</td>
+                                               <td>{{ elt.employe.depart }} </td>
+                                               <td>{{ elt.types }}</td>
+                                               <td>{{ elt.motif }}</td>
+                                               <td>{{ elt.date_debut }}</td>
+                                               <td>{{ elt.date_fin }}</td>
+                                           </tr>
+                                           {% endfor %}
+                                       </tbody>
+                                    
+                                   </table>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+           </div>   
+                    <div class="row">      
+                        <div class="col-12">
+                               <div class="card">
+                                   <div class="card-body">
+                                       <h4 class="card-title">Congé epuisé </h4>
+                                       <div class="table-responsive">
+                                           <table class="table table-striped table-bordered zero-configuration">
+                                               
+                                               <thead>
+                                                   <tr>
+                                                       <th>Employé</th>
+                                                       <th>Departement</th>
+                                                       <th> Type de congé </th>
+                                                       <th> motif </th>
+                                                       <th> Date début </th>
+                                                       <th> Date fin </th>
+                                                       
+                                                       
+                                                   </tr>
+                                               </thead>
+                                               <tbody>
+                                                   {% for elt in congep %}
+                                                  <tr>
+                                                       <td>{{ elt.employe.nom }} {{ elt.employe.prenom }}</td>
+                                                       <td>{{ elt.employe.depart }} </td>
+                                                       <td>{{ elt.types }}</td>
+                                                       <td>{{ elt.motif }}</td>
+                                                       <td>{{ elt.date_debut }}</td>
+                                                       <td>{{ elt.date_fin }}</td>
+                                                   </tr>
+                                                   {% endfor %}
+                                               </tbody>
+                                            
+                                           </table>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                   </div>
+              
+    </div>
+
+
+</div>
+
+    <!-- #/ container -->
+</div>
+<!--**********************************
+    Content body end
+***********************************-->
+
+
+{% endblock %}

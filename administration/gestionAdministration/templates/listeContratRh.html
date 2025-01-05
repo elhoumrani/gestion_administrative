@@ -1,0 +1,115 @@
+{% extends 'accueilrh.html' %}
+{% load static %}
+
+{% block title %} <title>Liste contrat</title>{% endblock %}
+
+
+
+
+   
+{% block contenu %}
+
+<div class="content-body">
+    
+    <!-- row -->
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Contrats</h4>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered zero-configuration">
+                                
+                                <thead>
+                                    <tr>
+                                        <th>Employé</th>
+                                        <th>Poste</th>
+                                        <th>Nature</th>
+                                        <th>Salaire</th>
+                                        <th>Signé</th>
+                                        <th>Fin</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for list in liste %}
+                                   <tr>
+                                        <td><a href="{% url 'details_contrat' id=list.id %}">{{ list.employe.nom }} {{ list.employe.prenom }}({{ list.employe.matricule }})</a></td>
+                                        <td><a href="{% url 'details_contrat' id=list.id %}">{{ list.poste }}</a></td>
+                                        <td><a href="{% url 'details_contrat' id=list.id %}">{{ list.types }}</a></td>
+                                        <td><a href="{% url 'details_contrat' id=list.id %}">{{ list.salaire }}</a></td>
+                                        <td><a href="{% url 'details_contrat' id=list.id %}">{{ list.dateSignature }}</a></td>
+                                        <td><a href="{% url 'details_contrat' id=list.id %}">{{ list.date_fin }}</a></td>
+                                        <td>
+                                           <a href="{% url 'modifierContrat' id=list.id %}" style="color: rgb(98, 98, 244);" >Modifier</a>/
+                                           <a href="{% url 'supprimerContrat' id=list.id %}" style="color: rgb(98, 98, 244);" >Resilier</a>
+                                        </td>
+                                        
+                                   
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                             
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Contrats recement expirés</h4>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered zero-configuration">
+                                
+                                <thead>
+                                    <tr>
+                                        <th>Employé</th>
+                                        <th>Poste</th>
+                                        <th>Nature</th>
+                                        <th>Salaire</th>
+                                        <th>Signé</th>
+                                        <th>Fin</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for list in listeE %}
+                                   <tr>
+                                        <td><span class="employe-id"
+                                            data-employee-info="{{list.employe.nom}}
+                                            ({{list.employe.prenom}})"></span>{{ list.employe.nom }} {{ list.employe.prenom }} ({{ list.employe.matricule }})</td>
+                                        <td>{{ list.poste }}</td>
+                                        <td>{{ list.types }}</td>
+                                        <td>{{ list.salaire }}</td>
+                                        <td>{{ list.dateSignature }}</td>
+                                        <td>{{ list.date_fin }}</td>
+                                        <td>
+                                           <a href="{% url 'renouvelerContrat' id=list.id %}" style="color: rgb(98, 98, 244);" >Renouveler</a>/
+                                           <a href="{% url 'archiverContrat' id=list.id %}" style="color: rgb(98, 98, 244);" >Archiver</a>
+                                        </td>
+                                        
+                                   
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                             
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- #/ container -->
+</div>
+{% endblock %}
+
+    

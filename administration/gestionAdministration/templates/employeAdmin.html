@@ -1,0 +1,56 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %} <title>Liste employe</title> {% endblock  %}
+
+
+{% block contenu %}
+
+<div class="content-body">
+    <div class="row page-titles mx-0">
+        
+    </div>
+    <!-- row -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Liste des employés</h4>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered zero-configuration">
+                                <thead>
+                                    <tr>
+                                        <th>MATRICULE</th>
+                                        <th>NOM</th>
+                                        <th>PRENOM</th>
+                                        <th>SEXE</th>
+                                        <th>E-mail</th>
+                                        <th>Departement</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for list in liste %}
+                                   <tr>
+                                        <td><a href="{% url 'details' id=list.id %}">{{ list.matricule }}</a></td>
+                                        <td><a href="{% url 'details' id=list.id %}">{{ list.nom }}</a></td>
+                                        <td><a href="{% url 'details' id=list.id %}">{{ list.prenom }}</a></td>
+                                        <td><a href="{% url 'details' id=list.id %}">{{ list.sexe }}</a></td>
+                                        <td><a href="{% url 'details' id=list.id %}">{{ list.emails }}</a></td>
+                                        <td><a href="{% url 'details' id=list.id %}">{{ list.depart }}</a></td>
+                                   
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                             
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #/ container -->
+</div>
+
+{% endblock %}

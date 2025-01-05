@@ -1,0 +1,65 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %} <title>Liste</title> {% endblock %}
+
+
+   
+{% block contenu %}
+        <div class="content-body">
+            <div class="row page-titles mx-0">
+                
+            </div>
+            <!-- row -->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Archives Contrats</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered zero-configuration">
+                                        
+                                        <thead>
+                                            <tr>
+                                                <th>Id Employé</th>
+                                                <th>Poste</th>
+                                                <th>Nature</th>
+                                                <th>Salaire</th>
+                                                <th>Date du debut</th>
+                                                <th>Date de fin</th>
+                                                <th>Motif</th>
+                                                <th>Archivé</th>
+                                               
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for list in liste %}
+                                           <tr>
+                                            <td>{{ list.employe.nom }} {{ list.employe.prenom }}({{ list.employe.matricule }})</td>
+                                                <td>{{ list.poste }}</td>
+                                                <td>{{ list.types }}</td>
+                                                <td>{{ list.salaire }}</td>
+                                                <td>{{ list.dateSignature }}</td>
+                                                <td>{{ list.date_fin }}</td>
+                                                <td>{{ list.motif }}</td>
+                                                <td>{{ list.date_archive }}</td>
+                                      
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                     
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div> <hr style="background-color: black; border: 2px solid black;"> </div>
+
+         
+            </div>
+            <!-- #/ container -->
+        </div>
+    {% endblock %}
+        

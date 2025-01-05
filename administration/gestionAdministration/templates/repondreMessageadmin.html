@@ -1,0 +1,67 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %} <title>Accueil</title> {% endblock  %}
+
+{% block contenu %}
+
+<div class="content-body">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="email-left-box"><a href="email-compose.html" class="btn btn-primary btn-block">Envoyer un message</a>
+                            <div class="mail-list mt-4"><a href="{% url 'message_msg' %}" class="list-group-item border-0  p-r-0"><i class="fa fa-inbox font-18 align-middle mr-2"></i> Boite de reception <span class="badge badge-primary badge-sm float-right m-t-5"></span> </a>
+                                <a href="{% url 'message_envoye' %}" class="list-group-item border-0 p-r-0  text-primary"><i class="fa fa-paper-plane font-18 align-middle mr-2"></i><b>Message envoyé </b>  <span class="badge badge-primary badge-sm float-right m-t-5">{{ nombre }}</span> </a> 
+                                <a href="#" class="list-group-item border-0 p-r-0"><i class="fa fa-trash font-18 align-middle mr-2"></i>Corbeille</a>
+                            </div>
+                            
+                        </div>
+                        <div class="email-right-box">
+                            
+                            <div class="compose-content mt-5">
+                                {{ msg }}
+                                <form  method="POST" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label class="col-lg-4 col-form-label" for="val-website">Sujet <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            {{ form.obj }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 col-form-label" for="val-website">Contenu <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            {{ form.contenu }}
+                                        </div>
+                                    </div>
+                                    <h5 class="m-b-20"><i class="fa fa-paperclip m-r-5 f-s-18"></i> Pieces Jointes</h5>
+                                    <div class="form-group">
+                                        <div>
+                                            {{ form.fichier }}
+                                        </div> 
+                                    </div>
+
+                                    <p>{{ msg }}</p>
+                                    <div class="text-left m-t-15">
+                                        <button class="btn btn-primary m-b-30 m-t-15 f-s-14 p-l-20 p-r-20 m-r-10" type="submit"><i class="fa fa-paper-plane m-r-5"></i> Send</button>
+                                    </div>
+                                </form>
+                                
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #/ container -->
+</div>
+
+{% endblock %}

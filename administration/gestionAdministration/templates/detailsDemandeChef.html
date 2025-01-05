@@ -1,0 +1,91 @@
+{% extends 'accueilchef.html' %}
+{% load static %}
+
+{% block title %} <title>Accueil</title>{% endblock %}
+
+
+
+
+{% block contenu %}
+
+<div class="content-body">
+
+    <div class="row page-titles mx-0">
+        <div class="col p-md-0">
+            <p style="font-weight: 700; color: black; text-align: center;"><strong>Details {{ detail.statut }}</strong></p>
+           
+        </div>
+    </div>
+    <!-- row -->
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-5">
+                <div class="card">
+                    <div class="card-body">
+                        <p style="text-align: center; color: black;">Demande</p>
+                        <hr style="background-color: black; border: 1px solid #000;;">
+                        
+                        <p>
+                            Nom :  {{ detail.employe.nom }} <br>
+                            Prenom : {{ detail.employe.prenom }} <br>
+                            Departement : {{ detail.employe.depart }} <br>
+                            Type de congé :{{ detail.types }} <br>
+                            Motif de congé :{{ detail.motif }} <br>
+                            Date du début : {{ detail.date_debut }} <br>
+                            Date de fin : {{ detail.date_fin }} <br>
+
+                            <button class="btn btn-primary"  style=" margin-right: 10px; ">
+                                <a class="text-white" href="{% url 'accorder' id=detail.id %}"> Approuver </a>
+                            </button>
+                            <button class="btn btn-danger">
+                               <a href="{% url 'refuser' id=detail.id %}" class="text-white"> Refuser </a>
+                             </button>
+                            </p>
+                        
+                      
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <p style="text-align: center; color: black;">Demande refusée</p>
+                        
+                        <p>{{ message }}</p>
+                        {% for elt in demandeR %}
+                        <p>
+                            <hr style="background-color: black; border: 1px solid #000;;">
+                            Nature de congé : {{ elt.types }} <br> 
+                            Motif de congé : {{ elt.types }} <br> 
+                            Date du début: {{ elt.date_debut}} <br> 
+                            Date de fin : {{ elt.date_fin }} <br> 
+                        </p>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <p style="text-align: center; color: black;">Demande Aprouvée</p>
+                        
+                        <p>{{ message }}</p>
+                        {% for elt in demandeA %}
+                        <hr style="background-color: black; border: 1px solid #000;;">
+                        <p>
+                            Nature de congé : {{ elt.types }} <br> 
+                            Motif de congé : {{ elt.types }} <br> 
+                            Date du début: {{ elt.date_debut}} <br> 
+                            Date de fin : {{ elt.date_fin }} <br> 
+                           
+    
+                        </p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #/ container -->
+</div>
+{% endblock %}

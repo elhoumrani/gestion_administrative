@@ -1,0 +1,72 @@
+{% extends 'accueilE.html' %}
+{% load static %}
+
+{% block title %} <title>Accueil</title>{% endblock %}
+
+
+{% block contenu %}
+
+<div class="content-body">
+
+    <!-- row -->
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        
+                        <div class="email-right-box">
+                            <div class="toolbar" role="toolbar">
+                                <div class="btn-group m-b-20">
+                                    
+                                    <button type="button" class="btn btn-light">
+                                        <a href="{% url 'supprimer_notif' id=notifs.id %}">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                       
+                                    </button>
+                                </div>
+                                
+                                
+                                
+                            </div>
+
+                            
+                            <div class="read-content">
+                               
+                                <div class="media pt-5">
+                                    
+                                    <div class="media-body">
+                                        <h5 class="m-b-3"><strong>{{notifs.employe.nom }} {{ notifs.employe.prenom }} </strong></h5>
+                                        <p class="m-b-2">{{ notifs.date_notif }}</p>
+                                    </div>
+                                    
+                                </div>
+                                <hr>
+                                <div class="media mb-4 mt-1">
+                                    <div class="media-body"><span class="float-right"> il y a {{ notifs.date_notif|timesince }}</span>
+                                        <h4 class="m-0">{{ notifs.intitule }}</h4>
+                                    </div>
+                                </div>
+                                
+                                <p style="color: black;">
+                                    {{ notifs.description }}
+                                </p>
+                                <br>
+                            
+                                <hr>
+                
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #/ container -->
+</div>
+
+{% endblock %}
